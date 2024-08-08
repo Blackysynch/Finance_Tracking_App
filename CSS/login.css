@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(47, 146, 196);
+  }
+  
+  h1 {
+    color: white;
+    text-align: center;
+  }
+  
+  p {
+    font-family: verdana;
+    font-size: 20px;
+  }
+  div{
+    background-color: rgb(221, 230, 234);
+  width: 350px;
+  height: 300px;
+  margin-left: 100px;
+  }
+ 
