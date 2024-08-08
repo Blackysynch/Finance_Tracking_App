@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; 
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: flex-start; 
+    padding: 20px;
+}
+
+
+.profile-box {
+    width: 50vw; 
+    height: 50vw; 
+    max-width: 500px; 
+    max-height: 500px; 
+    padding: 10px;
+    background-color: #719496; /* White background for form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(33, 45, 49, 0.1); 
+    box-sizing: border-box; /* Include padding in width */
+    text-align: center; /* Center text inside the form */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+}
+.profile-picture {
+    margin-bottom: 20px; 
+}
+
+.profile-picture img {
+    width: 100px; 
+    height: 100px; 
+    border: 3px solid #4CAF50; 
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+.balance-box {
+    width: 200px; 
+    height: 200px;
+    padding: 20px;
+    background-color: #87a5ae; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(110, 35, 184, 0.1); 
+    box-sizing: border-box; 
+    text-align: center; 
+}
+
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #333; /* Dark grey color for labels */
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: calc(100% - 22px); /* Full width minus padding */
+    padding: 10px;
+    border: 1px solid #41ba57; /* Light grey border */
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width */
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Button container styling */
+.wrap {
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+}
+
+/* Button styling */
+button {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    padding: 9px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1640bd; 
+}
+/* Link to Total Balance Page */
+.link-to-balance {
+    display: block;
+    margin: 20px 0;
+    color: #e5edef; /* Green color */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.link-to-balance:hover {
+    text-decoration: underline;
+}
+
+/*copy of nav bar*/
+#nav-bar {
+    border: 1px solid black;
+    position: relative;
+    top: 0px;
+    left: -9px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 20px;
+    height: 100vh;
+    width: 10vw;
+    min-width: 13vw;
+    background-color: aqua;
+
+}
+
+
+#nav-bar li:hover{
+    background-color: rgb(24, 163, 163);
+    color: white;
+}
+
+
+.link-nav{
+    display: inline-block;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+}
+
+li  {
+    line-height: 30px;
+}
+
+/*end of navigation*/
