@@ -5,22 +5,27 @@ body {
     padding: 0;
 }
 
+* {
+    border: none;
+}
 
 .container {
     display: flex; 
-    justify-content: space-around; 
-    align-items: flex-start; 
-    padding: 20px;
+    justify-content: space-between; /* Change to space-between for more space */
+    align-items: flex-start;
+    height: 90vh;
+    width: 99vw; /* Increased width for more spacing */
+    padding: 10px;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-
 .profile-box {
-    width: 50vw; 
-    height: 50vw; 
+    width: 40vw; 
+    height: auto; 
     max-width: 500px; 
     max-height: 500px; 
     padding: 10px;
-    background-color: #719496; /* White background for form */
+    background-color: rgb(0,255,255); /* White background for form */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 0 10px rgba(33, 45, 49, 0.1); 
     box-sizing: border-box; /* Include padding in width */
@@ -29,33 +34,45 @@ body {
     flex-direction: column;
     align-items: center; /* Center content horizontally */
     justify-content: center; /* Center content vertically */
+    margin-right: 20px; /* Add right margin for spacing */
 }
+
 .profile-picture {
     margin-bottom: 20px; 
 }
 
 .profile-picture img {
-    width: 100px; 
-    height: 100px; 
+    width: 160px; 
+    height: 160px; 
     border: 3px solid #4CAF50; 
     object-fit: cover; 
-    border-radius: 8px; 
+    border-radius: 100px; 
 }
+
 
 .balance-box {
-    width: 200px; 
-    height: 200px;
-    padding: 20px;
-    background-color: #87a5ae; 
-    border-radius: 8px;
+    width: 250px;
+    padding: 10px;
+    background-color: rgb(0, 255, 255); /* Light cyan background */
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(110, 35, 184, 0.1); 
-    box-sizing: border-box; 
-    text-align: center; 
+    box-sizing: border-box;
+    text-align: center;
 }
 
+.balance-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #41ba57; /* Light grey border */
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width */
+    font-size: 14px;
+    background-color: #fff; /* White background for input */
+    margin-bottom: 10px;
+}
 
 label {
-    display: block;
+    display: inline-block;
     font-size: 13px;
     margin-bottom: 6px;
     color: #333; /* Dark grey color for labels */
@@ -65,7 +82,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="number"] {
-    width: calc(100% - 22px); /* Full width minus padding */
+    width: calc(85% - 22px); /* Full width minus padding */
     padding: 10px;
     border: 1px solid #41ba57; /* Light grey border */
     border-radius: 4px;
@@ -96,6 +113,7 @@ button {
 button:hover {
     background-color: #1640bd; 
 }
+
 /* Link to Total Balance Page */
 .link-to-balance {
     display: block;
@@ -104,46 +122,3 @@ button:hover {
     text-decoration: none;
     font-size: 16px;
 }
-
-.link-to-balance:hover {
-    text-decoration: underline;
-}
-
-/*copy of nav bar*/
-#nav-bar {
-    border: 1px solid black;
-    position: relative;
-    top: 0px;
-    left: -9px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    row-gap: 20px;
-    height: 100vh;
-    width: 10vw;
-    min-width: 13vw;
-    background-color: aqua;
-
-}
-
-
-#nav-bar li:hover{
-    background-color: rgb(24, 163, 163);
-    color: white;
-}
-
-
-.link-nav{
-    display: inline-block;
-    text-align: center;
-}
-ul {
-    list-style-type: none;
-}
-
-li  {
-    line-height: 30px;
-}
-
-/*end of navigation*/
