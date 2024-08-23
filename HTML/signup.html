@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+	<link rel="stylesheet" href="../CSS/signup.css"> <!-- link to the signup.css file -->
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div class="show-password-container">
+                <input type="checkbox" id="show-password">
+                <label for="show-password">Show Password</label>
+            </div>
+
+                <button type="button">Register</button>
+    
+        </form>
+        <div class="login-link">
+            <a href="login">Already have an account?</a>
+        </div>
+    </div>
+    <script src="..\JS\signup.js"></script> <!--Link to the signup.js file-->
+</body>
+</html>
