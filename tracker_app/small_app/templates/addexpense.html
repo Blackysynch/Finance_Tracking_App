@@ -1,15 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add expense form</title>
-    <link rel="stylesheet" href="../CSS/addexpense.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add expense form</title>
+  <link rel="stylesheet" href="{% static 'CSS/addexpense.css' %}">
 </head>
+
 <body>
 
-    <div id="main-area">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <div id="main-area">
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script> 
       $(function(){
         $("#nav-bar").load("nav.html"); 
@@ -17,37 +21,39 @@
     </script>
     <div>
       <nav id="nav-bar"></nav>
-    </div>
+    </div>  
+    -->
+    {% include 'nav.html' %}
+    <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
 
-  <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
 
-     
-        
-      <div class="container" >
-        <div class=" content">
-          <h2>Add Expense</h2>
-          <form>
-            <div>
-              <label for="Category">Category</label>
+
+    <div class="container">
+      <div class=" content">
+        <h2>Add Expense</h2>
+        <form>
+          <div>
+            <label for="Category">Category</label>
             <input type="text" name="Category" id="category-input" placeholder="Category">
-            </div>
-            <div>
-              <label for="balance">Amount</label>
-             <input type="number" name="Amount" id="balance-input" placeholder="amount" size=50>
-            </div>
-            <div>
-              <label for="Date">Date</label>
-             <input type="date" name="Date" id="date-input" placeholder="date" size=50 >
-            </div>
-            <div>
-              <label for="description">Description</label>
-             <input type="text" name="Description" id="description-input" placeholder="description" size=30>
-            </div>
-            <input type="submit" value="Add Expense" class="submit-btn">
-          </form>
-        </div>
+          </div>
+          <div>
+            <label for="balance">Amount</label>
+            <input type="number" name="Amount" id="balance-input" placeholder="amount">
+          </div>
+          <div>
+            <label for="Date">Date</label>
+            <input type="date" name="Date" id="date-input" placeholder="date" size=50>
+          </div>
+          <div>
+            <label for="description">Description</label>
+            <input type="text" name="Description" id="description-input" placeholder="description" size=30>
+          </div>
+          <input type="submit" value="Add Expense" class="submit-btn">
+        </form>
       </div>
     </div>
-    
+  </div>
+
 </body>
+
 </html>

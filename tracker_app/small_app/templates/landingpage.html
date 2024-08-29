@@ -1,50 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
-    <link rel="stylesheet" href="../CSS/landingpage.css">
+    <link rel="stylesheet" href="{% static 'CSS/landingpage.css'%}">
 </head>
+
 <body>
     <!-- Section 1 -->
-    <section class="section section1">
-        <div class="text-container">
-            <h1>THE EASY WAY TO MANAGE YOUR MONEY</h1>
-            <img src="../Assets/pig-removebg-preview.png" alt="Piggy Bank" class="icon">
+    <nav>
+        <li class="section-link"><a href="#section2">HOW</a></li>
+        <li class="section-link"><a href="#section4">MORE</a></li>
+        <li class="section-link"><a href="#section3">ABOUT</a></li>
+        <li><a href="{% url 'login-page' %}"><button>Login</button></a></li>
+        <li><a href="{% url 'sign-up' %}"><button>Sign Up</button></a></li>
+    </nav>
+
+    <section id="section1">
+        <div class="content1">
+            <h1>MONEY PILOT</h1>
+            <h2>"Spend wise, Save smart, Suceed"</h2>
+            <img src="../Assets/pig-removebg-preview.png" alt="Piggy Bank" class="image1">
         </div>
+        <div class="wrapper">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+        </div>
+
     </section>
 
     <!-- Section 2 -->
-    <section class="section2">
-        <div class="container">
-            <img src="../Assets/stock-vector-money-wallet-with-green-banknote-cash-and-gold-coins-online-payment-financial-concept-of-wealth-2286037815-removebg-preview.png" alt="Wallet" class="icon">
-            <p>Keep track of your daily expenses and plan ahead</p>
-        </div>
-    </section>
-
-    
-        <!-- Section 4 -->
-        <section class="section4">
-            <div class="container">
-                <p>Other text explaining website</p>
-            </div>
-        </section>
-    
-        <!-- Section 3 -->
-        <section class="section3">
-            <div class="container">
-                <h2>OUR TEAM</h2>
-                <div class="team-members">
-                    <!-- Team member 1 -->
-                    <div class="team-member">
-                        <img src="team1.png" alt="Team Member 1">
-                        <h3>Title</h3>
-                        <p>Description</p>
-                    </div>
-                    <!-- Repeat team-member divs for other members -->
+    <section id="section2">
+        <div class="section-content">
+            <div class="cont2">
+                <img src="../Assets/1000_F_513083634_vdXBD62NCn8Sbxb3TH0P7MHZm4m223pF1-removebg-preview.png"
+                    alt="Wallet with Money" class="image2">
+                <div class="subcon1">
+                    <p>Keep track of your daily expenses and plan ahead</p>
                 </div>
             </div>
-        </section>
-    </body>
-    </html>
+            <div class=""></div>
+            <div class="">
+                <div class=""></div>
+                <p></p>
+
+                <!-- Section 4 -->
+                <section id="section4">
+                    <div class="circle1"></div>
+                    <p>Other text explaining website</p>
+                </section>
+                <section id="section3">
+                    <h2>Our Team</h2>
+                    <div class="team">
+                        <div class="team-pair">
+                            <div class="team-member">Title<br>Description</div>
+                            <div class="team-member">Title<br>Description</div>
+                            <div class="team-member">Title<br>Description</div>
+                        </div>
+                        <div class="team-pair">
+                            <div class="team-member">Title<br>Description</div>
+                            <div class="team-member">Title<br>Description</div>
+                            <div class="team-member">Title<br>Description</div>
+                        </div>
+                    </div>
+                </section>
+</body>
+
+</html>

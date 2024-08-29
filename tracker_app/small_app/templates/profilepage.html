@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Balanc</title>
-    <link rel="stylesheet" href="../CSS/profilepage.css">
+    <link rel="stylesheet" href="{% static 'CSS/profilepage.css'%}">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -13,15 +14,19 @@
 </head>
 <body>    
     <div class="container">
+        <!--
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script> 
             $(function(){
               $("#nav-bar").load("nav.html"); 
             });
         </script>
+        
         <div>
             <nav id="nav-bar"></nav>
         </div>
+        -->
+        {% include 'nav.html' %}
         <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
 
         

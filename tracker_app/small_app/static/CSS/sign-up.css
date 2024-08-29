@@ -8,7 +8,6 @@ body {
   background-attachment: fixed;
 }
 .signup-container {
-  margin-top: 90;
   display: flex;
   border-radius: 4px;
   text-align: center;
