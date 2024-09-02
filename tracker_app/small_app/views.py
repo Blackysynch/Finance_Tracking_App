@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.urls import reverse
 # Create your views here.
 
 def landingPage(request):
@@ -6,6 +9,21 @@ def landingPage(request):
 
 
 def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')   
+
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request,   
+ user)
+            # Successful authentication
+            return redirect(reverse(profilePage))  # Replace with your desired success page
+        else:
+            # Authentication failed
+            return render(request, 'login.html', {'error_message': 'Invalid credentials'})
+
     return render(request, 'login.html')
 
 

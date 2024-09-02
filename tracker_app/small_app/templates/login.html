@@ -13,10 +13,11 @@
 <body>
     <div class="login-container">
 
-        <form action="/login" method="post">
+        <form action="/login/" method="POST">
+            {% csrf_token %}
             <h3>Login Page</h3>
-            <label for="Name">Name</label><br>
-            <input type="text" id="Name" name="Name" required size="50"><br>
+            <label for="username">Name</label><br>
+            <input type="text" id="username" name="username" required size="50"><br>
             <label for="password">Password</label><br>
             <input type="password" id="password" name="password" required size="50"> <br>
 
@@ -27,6 +28,10 @@
 
     </div>
     </form>
+    <script src="{% static 'JS/login.js' %}"></script>
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
 </body>
 
 </html>
