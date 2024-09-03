@@ -1,106 +1,89 @@
 body {
+    background-color: rgb(0, 255, 250)0;
     font-family: Arial, sans-serif;
-    background-color: #f0f4f8; 
+    background-color: #ffffff; 
     margin: 0;
     padding: 0;
 }
 
-* {
-    border: none;
-}
-
-.container {
-    display: flex; 
-    justify-content: space-between; /* Change to space-between for more space */
-    align-items: flex-start;
-    height: 90vh;
-    width: 99vw; /* Increased width for more spacing */
-    padding: 10px;
-    box-sizing: border-box; /* Ensure padding is included in width */
-}
 
 .profile-box {
-    width: 40vw; 
-    height: auto; 
-    max-width: 500px; 
-    max-height: 500px; 
+    position: absolute;
+    width: 30vw;
+    top: 5%;
+    bottom: 45vh;
+    left: 40%; 
+    height: 90vh; 
+    max-width: 50vw; 
+    max-height: 90vh;
     padding: 10px;
-    background-color: rgb(0,255,255); /* White background for form */
+    background-color: aqua; /* White background for form */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 0 10px rgba(33, 45, 49, 0.1); 
     box-sizing: border-box; /* Include padding in width */
-    text-align: center; /* Center text inside the form */
+    text-align: center; /* Center text inside */
     display: flex;
     flex-direction: column;
     align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    margin-right: 20px; /* Add right margin for spacing */
+    justify-content:space-evenly; /* Center content vertically */
+
+
 }
 
-.profile-picture {
-    margin-bottom: 20px; 
+h1{
+    position: relative;
+    top: -1px;
 }
 
-.profile-picture img {
-    width: 160px; 
-    height: 160px; 
-    border: 3px solid #4CAF50; 
-    object-fit: cover; 
-    border-radius: 100px; 
+h3{
+    position: relative;
+    bottom: 30px;
+}
+
+#profile-pic {
+    position: relative;
+    width: 100px; 
+    height: 100px; 
+    bottom: 35px;
+    border: 3px solid #4CAF50;
+    border-radius: 50px; 
 }
 
 
-.balance-box {
-    width: 250px;
-    padding: 10px;
-    background-color: rgb(0, 255, 255); /* Light cyan background */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(110, 35, 184, 0.1); 
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.balance-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #41ba57; /* Light grey border */
-    border-radius: 4px;
-    box-sizing: border-box; /* Include padding in width */
-    font-size: 14px;
-    background-color: #fff; /* White background for input */
-    margin-bottom: 10px;
+label, input{
+    position: relative;
+    bottom: 20px;
 }
 
 label {
-    display: inline-block;
+    display: block;
     font-size: 13px;
-    margin-bottom: 6px;
-    color: #333; /* Dark grey color for labels */
+    margin-top: 0px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #000000; 
 }
 
+
 /* Input field styling */
-input[type="text"],
-input[type="email"],
-input[type="number"] {
-    width: calc(85% - 22px); /* Full width minus padding */
-    padding: 10px;
-    border: 1px solid #41ba57; /* Light grey border */
+
+input{
+    width: 90%;  
+
+    border: 1px solid #41ba57;
     border-radius: 4px;
-    box-sizing: border-box; /* Include padding in width */
-    margin-bottom: 10px;
+    box-sizing: border-box;
     font-size: 14px;
 }
 
-/* Button container styling */
-.wrap {
-    width: 100%; 
-    display: flex; 
-    justify-content: center; 
-}
+
 
 /* Button styling */
+
+
 button {
-    background-color: #4CAF50; 
+    position: relative;
+    background-color: #17aa1c; 
     color: white; 
     border: none;
     padding: 9px 10px;
@@ -108,17 +91,9 @@ button {
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
+    bottom: 13px;
 }
 
 button:hover {
     background-color: #1640bd; 
-}
-
-/* Link to Total Balance Page */
-.link-to-balance {
-    display: block;
-    margin: 20px 0;
-    color: #e5edef; /* Green color */
-    text-decoration: none;
-    font-size: 16px;
 }
