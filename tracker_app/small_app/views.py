@@ -17,6 +17,9 @@ def profilePage(request):
     return render(request, 'profilepage.html')
 
 
+def profileDisplay(request):
+    return render(request, 'profiledisplay.html')
+
 def addExpense(request):
     return render(request, 'addexpense.html')
 
