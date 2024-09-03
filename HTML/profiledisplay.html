@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../CSS/profiledisplay.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script> 
+        $(function(){
+          $("#nav-bar").load("nav.html"); 
+        });
+      </script>
+      <div>
+        <nav id="nav-bar"></nav>
+      </div>
+
+    <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
+    <body>
+        <div class="profile-container">
+          <div class="profile-header">
+            <h1>User Profile</h1>
+          </div>
+          <div id="profile-info">
+            <section>
+              <h2>Personal Information</h2>
+              <table>
+                <tr>
+                  <td colspan="2"><img id="profile-picture" src="" width="100" height="100" alt="Profile Picture"></td>
+                </tr>
+                <tr>
+                  <td><label>Name:</label></td>
+                  <td><input type="text" id="name" style="width: 200px;" readonly></td>
+                </tr>
+                <tr>
+                  <td><label>Email:</label></td>
+                  <td><input type="email" id="email" style="width: 200px;" readonly></td>
+                </tr>
+                <tr>
+                  <td><label>Phone:</label></td>
+                  <td><input type="text" id="phone" style="width: 200px;" readonly></td>
+                </tr>
+                <tr>
+                  <td><label>Location:</label></td>
+                  <td><input type="text" id="location" style="width: 200px;" readonly></td>
+                </tr>
+                <tr>
+                  <td><label>Country:</label></td>
+                  <td><input type="text" id="country" style="width: 200px;" readonly></td>
+                </tr>
+              </table>
+            </section>
+            <section>
+              <h2>Budgeting Information</h2>
+              <table>
+                <tr>
+                  <td><label>Monthly Budget Limit:</label></td>
+                  <td><input type="number" id="budget-limit" style="width: 200px;" readonly></td>
+                </tr>
+                <tr>
+                  <td><label>Source of Income:</label></td>
+                  <td><input type="text" id="source-income" style="width: 200px;" readonly></td>
+                </tr>
+                <tr>
+                  <td><label>Other Sources of Income:</label></td>
+                  <td><textarea id="other-sources" style="width: 200px; height: 60px;" readonly></textarea></td>
+                </tr>
+              </table>
+            </section>
+            <section>
+             
+              </table>
+            </section>
+          </div>
+        </div>
+        <script src="script.js"></script>
+      
+</body>
+</html>
