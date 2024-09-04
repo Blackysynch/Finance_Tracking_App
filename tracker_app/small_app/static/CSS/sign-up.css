@@ -2,10 +2,11 @@ body {
   background-color: rgba(0,255,255);
   background-position: center;
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
 }
 .signup-container {
   display: flex;
@@ -21,7 +22,7 @@ body {
 
 .signup-container h1 {
   text-align: center;
-  color: black; /* Blue text color */
+  color: black; /* Black text color */
 }
 
 .show-password-container {
@@ -64,4 +65,7 @@ body {
 
 .signup-container a {
   font-size: 13px;
+  color: rgb(48, 112, 232);
 }
+
+

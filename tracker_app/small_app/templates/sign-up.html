@@ -11,7 +11,8 @@
             <h1>SignUp</h1>
         </div>
 
-        <form action="database">
+        <form action="{% url 'sign-up' %}" method="POST">
+            {% csrf_token %}
             <input type="text" id="uname" name="uname" placeholder="Enter Username" required><br><br>
             <input type="email" id="email" name="email" placeholder="your_email@gmail.com" required><br><br>
             <input type="password" id="password" name="password" placeholder="Enter Password" required><br><br>
@@ -25,7 +26,7 @@
             <div><a href="{% url 'login-page' %}">Already have an account?</a></div>
         </form>
     </div>
-    <script src="..\JS\sign up.js"></script>
+    <script src="{% static 'JS/sign-up.js' %}"></script>
 
 </body>
 
