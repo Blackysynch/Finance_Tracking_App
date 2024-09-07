@@ -13,7 +13,8 @@
 <body>
     <div class="login-container">
 
-        <form action="/login" method="post">
+        <form action="{% url 'login-page' %}" method="post">
+            {% csrf_token %}
             <h3>Login Page</h3>
             <label for="Name">Name</label><br>
             <input type="text" id="Name" name="Name" required size="50"><br>

@@ -1,4 +1,10 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.hashers import make_password
+from .models import User
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
+
 # Create your views here.
 
 def landingPage(request):
@@ -9,7 +15,7 @@ def loginPage(request):
     return render(request, 'login.html')
 
 
-def signUpPage(request):
+def signUpPage(request): 
     return render(request, 'sign-up.html')
 
 
