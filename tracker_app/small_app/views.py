@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
-from .models import User
+from .models import User, Expense
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -26,7 +27,52 @@ def profilePage(request):
 def profileDisplay(request):
     return render(request, 'profiledisplay.html')
 
+@login_required
 def addExpense(request):
+    if request.method == 'POST':
+        # Retrieve data from the POST request
+        user = request.user.id # Assumes user is authenticated
+        date = request.POST.get('date')
+        category = request.POST.get('category')
+        amount = request.POST.get('amount')
+        description = request.POST.get('description')
+        try:
+            amount = float(amount)
+            if amount <= 0:
+                messages.error('Amount must be a positive number.')
+        except ValueError:
+            messages.error('Invalid amount format.')
+
+
+        if not date:
+            messages.error(request, 'Date is required.')
+        if not category:
+            messages.error(request, 'Category is required.')
+        if not amount:
+            messages.error(request,'Amount is required.')
+
+        try:
+            amount = float(amount)
+            if amount <= 0:
+                messages.error('Amount must be a positive number.')
+        except ValueError:
+            messages.error('Invalid amount format.')
+        
+        if description and len(description) > 255:
+           messages.error('Description cannot exceed 255 characters.')
+
+
+        # Save the data to the Expense model
+        Expense.objects.create(
+            user_id=request.user.id,
+            date=date,
+            category=category,
+            amount=amount,
+            description=description
+        )
+
+        return redirect('add-expense')  # Redirect to the same page after adding the expense
+
     return render(request, 'addexpense.html')
 
 
