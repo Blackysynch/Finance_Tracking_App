@@ -28,40 +28,40 @@
                 </tr>
                 <tr>
                   <td><label>Name:</label></td>
-                  <td><input type="text" id="name" style="width: 200px;" readonly></td>
+                  <td><input type="text" id="name" style="width: 200px;" readonly value="{{user_detail.name}}"></td>
                 </tr>
                 <tr>
                   <td><label>Email:</label></td>
-                  <td><input type="email" id="email" style="width: 200px;" readonly></td>
+                  <td><input type="email" id="email" style="width: 200px;" readonly value="{{user_detail.email}}"></td>
                 </tr>
                 <tr>
                   <td><label>Phone:</label></td>
-                  <td><input type="text" id="phone" style="width: 200px;" readonly></td>
+                  <td><input type="text" id="phone" style="width: 200px;" readonly value="{{user_detail.telephone}}"></td>
                 </tr>
                 <tr>
                   <td><label>Location:</label></td>
-                  <td><input type="text" id="location" style="width: 200px;" readonly></td>
+                  <td><input type="text" id="location" style="width: 200px;" readonly value="{{user_detail.location}}"></td>
                 </tr>
                 <tr>
                   <td><label>Country:</label></td>
-                  <td><input type="text" id="country" style="width: 200px;" readonly></td>
+                  <td><input type="text" id="country" style="width: 200px;" readonly value="{{user_detail.country}}"></td>
                 </tr>
               </table>
             </section>
-            <section>
+            <section id="sect2">
               <h2>Budgeting Information</h2>
               <table>
                 <tr>
                   <td><label>Monthly Budget Limit:</label></td>
-                  <td><input type="number" id="budget-limit" style="width: 200px;" readonly></td>
+                  <td><input type="number" id="budget-limit" style="width: 200px;" readonly value="{{user_detail.budgetmonthly}}"></td>
                 </tr>
                 <tr>
                   <td><label>Source of Income:</label></td>
-                  <td><input type="text" id="source-income" style="width: 200px;" readonly></td>
+                  <td><input type="text" id="source-income" style="width: 200px;" readonly value="{{user_detail.source_of_income}}"></td>
                 </tr>
                 <tr>
                   <td><label>Other Sources of Income:</label></td>
-                  <td><textarea id="other-sources" style="width: 200px; height: 60px;" readonly></textarea></td>
+                  <td><textarea id="other-sources" style="width: 200px; height: 60px;" readonly value="{{user_detail.other_sources}}"></textarea></td>
                 </tr>
               </table>
             </section>
