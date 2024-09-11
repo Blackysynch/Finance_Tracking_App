@@ -1,69 +1,59 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total Balanc</title>
-    <link rel="stylesheet" href="{% static 'CSS/profilepage.css'%}">
-
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'CSS/profilepage.css' %}">
 </head>
-<body>    
-    <div class="container">
-        <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <script> 
-            $(function(){
-              $("#nav-bar").load("nav.html"); 
-            });
-        </script>
-        
-        <div>
-            <nav id="nav-bar"></nav>
-        </div>
-        -->
-        {% include 'nav.html' %}
-        <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
 
-        
+<body>
+    {% include 'nav.html' %}
+    <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
+
+    <div class="container">
+            
         <div class="profile-box">
             <h1>Profile Page</h1>
-            
-            <div class="main">
                 
-                <h3>Enter your information</h3>
-                <div class="profile-picture">
-                    <img id="profile-pic" src="../Assets\images\person.jpeg" alt="Profile Picture">
-                </div>
-                <form action="">
-                    <label for="first">Username:</label>
-                    <input type="text" id="first" name="first" placeholder="Enter your Username" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Enter your email" required>
-                    <div class="wrap">
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="balance-box">
-            <h1>Total Balance</h1>
-            <div class="balance-details">
-                <p><strong>Name:</strong> <span id="display-name">Name will appear here</span></p>
-                <p><strong>Email:</strong> <span id="display-email">Email will appear here</span></p>
-                <p><strong>Balance:</strong> <span id="display-balance">Balance will appear here</span></p>
-            </div>
-        </div>         
+            <h3>Enter your information</h3>
+            <img id="profile-pic" src="../Assets\images\person.jpeg" alt="Profile Picture">
             
-           
+                        
+            <form action="">
+                <label for="name">Name</label>
+                <input type="text" id="first" name="first" placeholder="Enter your Username" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <label for="tel">Tel</label>
+                <input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required>
+                <label for="loction">Location</label>
+                <input type="text" id="location" name="location" placeholder="Enter your location" required>
+                <label for="country">Country</label>
+                <input type="text" id="country" name="country" placeholder="Enter your country" required>
+
+                <div>
+                    <h3>Budgeting Information</h2>
+                </div>
+                <label for="monthly-budget">Monthly Budget Limit</label>
+                <input type="number" id="monthly-budget" name="monthly-budget" step="0.01">
+                <label for="income-source">Source of Income</label>
+                <input type="text" id="income-source" name="income-source">
+                <label for="additional-income">Other Source of Income</label>
+                <input type="text" id="additional-income" name="additional-income" >
+                
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
-    
+
+
 
 
 </body>
+
 </html>
+

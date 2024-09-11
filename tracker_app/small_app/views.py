@@ -1,10 +1,21 @@
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.urls import reverse
 import os
 
 
+=======
+from django.contrib.auth.hashers import make_password, check_password
+#from .models import User
+from django.contrib.auth.models import User
+from .models import Expense, UserDetail
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required 
+>>>>>>> e6c4076988d87143c6a9fb9c068cdb3deb90319f
 # Create your views here.
 
 def landingPage(request):
@@ -49,13 +60,16 @@ def loginPage(request):
 
 
 
-def signUpPage(request):
+def signUpPage(request): 
     return render(request, 'sign-up.html')
 
 
 def profilePage(request):
     return render(request, 'profilepage.html')
 
+
+def profileDisplay(request):
+    return render(request, 'profiledisplay.html')
 
 def addExpense(request):
     return render(request, 'addexpense.html')
