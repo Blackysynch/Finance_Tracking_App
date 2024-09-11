@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'CSS/login.css' %}">
-    <link rel="stylesheet" href="../JS/login.javascript">
 </head>
 
 <body>
@@ -22,12 +21,10 @@
             <input type="password" id="password" name="password" required size="50"> <br>
 
             <button id="submit" type="submit"> sign in </button>
-            <p for="Forgotten password?" style="font-size: 15px;">Forgotten password? <a href="#">reset</a></p><br>
-            <p for="Don't have an account yet?" style="font-size: 15px;">Don't have an account yet?<a href="{% url 'sign-up'%}">sign
-                    up</a></p><br>
-
+            <p id="forgotten-password" style="font-size: 15px;">Forgotten password? <a href="#">reset</a></p><br>
+            <p id="no-account" style="font-size: 15px;">Don't have an account yet?<a href="{% url 'sign-up'%}">sign up</a></p><br>
+        </form>
     </div>
-    </form>
 </body>
 
 </html>
