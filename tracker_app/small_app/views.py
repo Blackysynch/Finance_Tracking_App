@@ -1,13 +1,8 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
-from django.contrib.auth.hashers import make_password
-from .models import User,UserDetails
-=======
 from django.contrib.auth.hashers import make_password, check_password
 #from .models import User
 from django.contrib.auth.models import User
 from .models import Expense, UserDetail
->>>>>>> e6c4076988d87143c6a9fb9c068cdb3deb90319f
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
@@ -88,7 +83,9 @@ def signUpPage(request):
 # After successful user creation  
     return redirect('login-page')
 
- @login_required
+
+
+@login_required
 def profilePage(request):
     if request.method == 'POST':
         user = request.user.id
