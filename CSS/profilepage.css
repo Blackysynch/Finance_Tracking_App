@@ -67,15 +67,13 @@ label {
 
 /* Input field styling */
 
-input{
-    width: 90%;  
-
-    border: 1px solid #41ba57;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
+input {
+    position: relative;
+    width: 90%;
+left: 0%; border: 1px solid #41ba57; 
+border-radius: 4px; box-sizing: border-box; 
+font-size: 14px; 
+} 
 
 
 /* Button styling */
