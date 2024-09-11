@@ -149,7 +149,9 @@ def profilePage(request):
 
 
 def profileDisplay(request):
-    return render(request, 'profiledisplay.html')
+    user_detail = UserDetail.objects.get(user_id=request.user.id)
+    return render(request, 'profiledisplay.html', {'user_detail': user_detail})
+
 
 def addExpense(request):
     return render(request, 'addexpense.html')
@@ -172,6 +174,3 @@ def analysisPage(request):
 #            login(request, user)
 #            return redirect('home')
 #    return render(request, 'login.html')
-
-
-
