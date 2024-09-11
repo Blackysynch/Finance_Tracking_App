@@ -5,11 +5,10 @@ from django.contrib.auth.models import User
 from .models import Expense, UserDetail
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.http import JsonResponse
-from django.contrib.auth.decorators import login_required 
+from django.http import JsonResponse, HttpResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
 
 
 def landingPage(request):
@@ -147,14 +146,46 @@ def profilePage(request):
 
     return render(request, 'profilepage.html')
 
-
+@login_required
 def profileDisplay(request):
     user_detail = UserDetail.objects.get(user_id=request.user.id)
     return render(request, 'profiledisplay.html', {'user_detail': user_detail})
 
 
+@login_required
 def addExpense(request):
+    if request.method == 'POST':
+        # Retrieve data from the POST request
+        user = request.user  # Assumes user is authenticated
+        date = request.POST.get('date')
+        category = request.POST.get('category')
+        amount = request.POST.get('amount')
+        description = request.POST.get('description')
+
+        # Validate the data (you can add more validation if needed)
+        if not date or not category or not amount:
+            return HttpResponse('Please fill in all required fields.')
+
+        try:
+            # Convert amount to Decimal type
+            amount = float(amount)
+        except ValueError:
+            return HttpResponse('Invalid amount format.')
+
+        # Save the data to the Expense model
+        Expense.objects.create(
+            user_id=user,
+            date=date,
+            category=category,
+            amount=amount,
+            description=description
+        )
+
+        return redirect('add_expense')  # Redirect to the same page after adding the expense
+
     return render(request, 'addexpense.html')
+
+
 
 
 def expenseHistory(request):
