@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,97 +6,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../CSS/expensetable.css">
+    <link rel="stylesheet" href="{% static 'CSS/expensetable.css' %}">
 </head>
 
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $("#nav-bar").load("nav.html");
-        });
-    </script>
-    <div>
-        <nav id="nav-bar"></nav>
-    </div>
-
+    {% include 'nav.html' %}
     <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
 
     <!---->
-    
-        <div id="tablebox">
-            <table id="table">
 
-                <tr> 
-                    <th></th>
-                    <th>Categories</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Description</th>
-                </tr>
-                <tr id="t1"> 
-                    <th>1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="t1">
-                    <th>2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="t1">
-                    <th>3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="t1">
-                    <th>4</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="t1">
-                    <th>5</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="t1">
-                    <th>6</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>g
-                <tr id="t1">
-                    <th>7</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+    <div id="tablebox">
+        <table id="table">
 
-                </tr>
+            <tr>
+                <th></th>
+                <th>Categories</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Description</th>
+            </tr>
+            {% for expense in expenses %}
 
-                <style>
-                    table,th,td {
-                        border:1px solid black;
-                        border-collapse:collapse;
-                    }
-                    th,td {
-                        background-color:rgb(228, 226, 226);
-                    }
-                    
-                </style>
-            </table>
-        </div>
+            <tr>
+                <td></td>
+                <td>{{ expense.category }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.description }}</td>
+            </tr>
+            
+            {% empty %}
+            <tr>
+                <td colspan="4">No expenses found for this user.</td>
+            </tr>
+            {% endfor %}
+            <!--
+            <tr id="t1">
+                <th>1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="t1">
+                <th>2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="t1">
+                <th>3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="t1">
+                <th>4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="t1">
+                <th>5</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="t1">
+                <th>6</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>g
+            <tr id="t1">
+                <th>7</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>-->
+
+            <style>
+                table,
+                th,
+                td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+
+                th,
+                td {
+                    background-color: rgb(228, 226, 226);
+                }
+            </style>
+        </table>
+    </div>
 
 </body>
 

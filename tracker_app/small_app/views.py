@@ -188,12 +188,23 @@ def addExpense(request):
 
 
 
+@login_required
 def expenseHistory(request):
-    return render(request, 'expensetable.html')
+    username = request.user.username
+    user_expenses = Expense.objects.filter(user=request.user)
+
+    # Print expense details
+    for expense in user_expenses:
+        print(f"Date: {expense.date}, Category: {expense.category}, Amoun:t {expense.amount}, Description: {expense.description}")
+
+    return render(request, 'expensetable.html', {'expenses': user_expenses})
+
 
 
 def analysisPage(request):
     return render(request, 'analysispage.html')
+
+
 
 
 #def loginPage(request):
