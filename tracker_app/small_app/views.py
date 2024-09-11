@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import make_password
-from .models import User
+from django.contrib.auth.hashers import make_password, check_password
+#from .models import User
+from django.contrib.auth.models import User
+from .models import Expense, UserDetail
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
-
-
-
-
-
+from django.contrib.auth.decorators import login_required 
 # Create your views here.
 
 
