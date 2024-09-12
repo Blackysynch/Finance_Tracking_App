@@ -25,6 +25,22 @@
                 <th>Date</th>
                 <th>Description</th>
             </tr>
+            {% for expense in expenses %}
+
+            <tr>
+                <td></td>
+                <td>{{ expense.category }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.description }}</td>
+            </tr>
+            
+            {% empty %}
+            <tr>
+                <td colspan="4">No expenses found for this user.</td>
+            </tr>
+            {% endfor %}
+            <!--
             <tr id="t1">
                 <th>1</th>
                 <td></td>
@@ -74,7 +90,7 @@
                 <td></td>
                 <td></td>
 
-            </tr>
+            </tr>-->
 
             <style>
                 table,
