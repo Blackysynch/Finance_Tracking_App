@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required 
+from django.db.models import Sum, FloatField
+from django.db.models.functions import Cast
 
 # Create your views here.
 
@@ -211,7 +213,46 @@ def expenseHistory(request):
 
     return render(request, 'expensetable.html', {'expenses': user_expenses})
 
+
+
+
+
+
 @login_required
 def analysisPage(request):
-    return render(request, 'analysispage.html')
+    user = request.user.id
+    
+
+    #for 1st pie chart
+    user_expenses = Expense.objects.filter(user=user).order_by('date')
+    user_expenses_per_category = Expense.objects.filter(user=user).values('category').annotate(total_exp=Sum('amount'))
+
+    total_expenses = [float(expense['total_exp'])  for expense in user_expenses_per_category]
+    #dates = [expense.date  for expense in user_expenses]
+    categories = [expense['category'] for expense in user_expenses_per_category]
+
+    print (f"{total_expenses} \n'{'dates'}' \n{categories}")
+    
+
+    """
+    for expense in user_expenses_per_category:
+        print(f" {categories} : {total_expenses}")
+    
+    for expense in user_expenses:
+        print(f" {expense.date} {expense.amount} {expense.category}")
+    """
+    
+    #for the line chart
+    # getdates and amounts from expenses
+    dates = [str(expense.date) for expense in user_expenses]
+    amounts = [float(expense.amount) for expense in user_expenses]
+    for date in dates:
+        print(date , type(dates))
+        print(amounts, type(amounts[0]))
+
+
+    #for bar chart
+
+
+    return render(request, 'analysispage.html', { 'total_expenses': total_expenses,'categories': categories,  'dates': dates, 'amounts': amounts })
 
