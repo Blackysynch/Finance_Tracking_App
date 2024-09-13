@@ -87,41 +87,79 @@
                 /*line chart*/
                 const lineCtx = document.getElementById('linechart').getContext('2d');
                 const lineChart = new Chart(lineCtx, {
-                        type: "line",
-                        data: {
-                            labels: {{ dates | SafeArray }} ,
-                    datasets: [{
-                        label: 'Expenses with time',
-                        data: {{ amounts | SafeArray}},
-                        backgroundColor: 'rgba(118, 99, 255, 0.5)',
-                        borderColor: 'rgba(86, 0, 255, 0.5)',
-                        borderWidth: 1,
-                        pointRadius: 3,
-                        pointHoverRadius: 5,
-                    }],
-                    options: {
-                        title: {
-                        display: true,
-                        text: 'Expenses with time'
-                    },
-                    legend: {
-                        position: 'right',
-                        align: 'top',
-                        labels: {
-                            boxWidth: 10,
-                            fontSize: 12,
-                            fontColor: '#666'
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            stepSize: 10000
+                    type: "line",
+                    data: {
+                        labels: {{ dates | SafeArray }} ,
+                        datasets: [{
+                            label: 'Expenses with time',
+                            data: {{ amounts | SafeArray}},
+                            backgroundColor: 'rgba(118, 99, 255, 0.5)',
+                            borderColor: 'rgba(86, 0, 255, 0.5)',
+                            borderWidth: 1,
+                            pointRadius: 3,
+                            pointHoverRadius: 5,
+                        }],
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Expenses with time'
+                            },
+                            legend: {
+                                position: 'right',
+                                align: 'top',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontSize: 12,
+                                    fontColor: '#666'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    stepSize: 10000
+                                }
+                            }
                         }
                     }
-                }
-            }
-        });
+                });
+
+
+                /*bar chart*/
+                const barCtx = document.getElementById('barchart').getContext('2d');
+                const barChart = new Chart(barCtx, {
+                    type: "bar",
+                    data: {
+                        labels: {{ categories | SafeArray }} ,
+                        datasets: [{
+                            label: 'Expenses with time',
+                            data: {{ total_expenses | SafeArray}},
+                            backgroundColor: ['red', 'blue', 'green', 'purple', 'orange', 'brown'],
+                            borderColor: 'rgba(86, 0, 255, 0.5)',
+                            borderWidth: 1
+                        }],
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Total Expenses per Category'
+                            },
+                            legend: {
+                                position: 'right',
+                                align: 'top',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontSize: 12,
+                                    fontColor: '#666'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    stepSize: 10000
+                                }
+                            }
+                        }
+                    }
+                });
         
         });
         
