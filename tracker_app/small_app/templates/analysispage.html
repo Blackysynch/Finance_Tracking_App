@@ -1,4 +1,5 @@
 {% load static %}
+{% load json_filter %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,18 +12,158 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="{% static 'CSS/analysispage.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/onlyanalysispage.css' %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
-    <main id="main-content">
+    <main>
+        <div class="container">
+            <div class="chart pie">
+                <canvas id="piechart">
+
+                </canvas>
+            </div>
+            <div class="chart line">
+                <canvas id="linechart">
+
+                </canvas>
+            </div>
+            <div class="chart bar">
+                <h4 class="titles">bar chart</h4>
+                <canvas id="barchart">
+
+                </canvas>
+            </div>
+            <div class="stacked-chart stacked">
+                <h4 class="titles">stacked bar chart of expenses over time</h4>
+                <canvas id="stackedchart">
+
+                </canvas>
+            </div>
+        </div>
 
     </main>
-
     {% include 'nav.html' %}
+    <p>cat {{categories}}</p>
+    <p>ext{{total_expenses}}</p>
+    <p> amt{{amounts}}</p>
+    <p> date {{dates}}</p>
     <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+                /*pie chart*/
+                const pieCtx = document.getElementById('piechart').getContext('2d');
+                const pieChart = new Chart(pieCtx, {
+                    type: "doughnut",
+                    data: {
+                        labels: {{ categories | SafeArray }} ,
+                        datasets: [{
+                            label: 'expenses',
+                            data: {{ total_expenses | SafeArray}},
+                            backgroundColor: ['red', 'blue', 'green', 'purple', 'orange', 'brown'],
+                            borderWidth: 1 
+                        }],
+                        options: {
+                            title: {
+                            display: true,
+                            text: 'Top 10 Expenses'
+                        },
+                        legend: {
+                            position: 'right',
+                            align: 'top',
+                            labels: {
+                                boxWidth: 10,
+                                fontSize: 12,
+                                fontColor: '#666'
+                            }
+                        }
+                    }
+                }
+            });
+
+                /*line chart*/
+                const lineCtx = document.getElementById('linechart').getContext('2d');
+                const lineChart = new Chart(lineCtx, {
+                    type: "line",
+                    data: {
+                        labels: {{ dates | SafeArray }} ,
+                        datasets: [{
+                            label: 'Expenses with time',
+                            data: {{ amounts | SafeArray}},
+                            backgroundColor: 'rgba(118, 99, 255, 0.5)',
+                            borderColor: 'rgba(86, 0, 255, 0.5)',
+                            borderWidth: 1,
+                            pointRadius: 3,
+                            pointHoverRadius: 5,
+                        }],
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Expenses with time'
+                            },
+                            legend: {
+                                position: 'right',
+                                align: 'top',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontSize: 12,
+                                    fontColor: '#666'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    stepSize: 10000
+                                }
+                            }
+                        }
+                    }
+                });
 
 
-
+                /*bar chart*/
+                const barCtx = document.getElementById('barchart').getContext('2d');
+                const barChart = new Chart(barCtx, {
+                    type: "bar",
+                    data: {
+                        labels: {{ categories | SafeArray }} ,
+                        datasets: [{
+                            label: 'Expenses with time',
+                            data: {{ total_expenses | SafeArray}},
+                            backgroundColor: ['red', 'blue', 'green', 'purple', 'orange', 'brown'],
+                            borderColor: 'rgba(86, 0, 255, 0.5)',
+                            borderWidth: 1
+                        }],
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Total Expenses per Category'
+                            },
+                            legend: {
+                                position: 'right',
+                                align: 'top',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontSize: 12,
+                                    fontColor: '#666'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    stepSize: 10000
+                                }
+                            }
+                        }
+                    }
+                });
+        
+        });
+        
+    </script>
 </body>
 
 </html>
