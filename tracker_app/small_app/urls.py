@@ -10,4 +10,5 @@ urlpatterns = [
     path('addexpense/', views.addExpense, name='add-expense'),
     path('expensehistory/', views.expenseHistory, name='expense-history'),
     path('analysis/', views.analysisPage, name='analysis-page'),
+    path('logout/', views.logOut, name='log-out'),
 ]

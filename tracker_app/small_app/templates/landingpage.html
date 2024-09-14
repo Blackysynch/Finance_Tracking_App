@@ -8,67 +8,153 @@
     <title>Landing Page</title>
     <link rel="stylesheet" href="{% static 'CSS/landingpage.css'%}">
 
-    <link rel="stylesheet" href="../static/CSS/landingpage.css">
+    <link rel="stylesheet" href="{% static 'CSS/landingpage.css' %}">
 </head>
 
 <body>
     <!-- Section 1 -->
     <nav>
+        <li class="home-link"><a href="#section1">MONEYPILOT</a></li>
         <li class="section-link"><a href="#section2">HOW</a></li>
         <li class="section-link"><a href="#section4">MORE</a></li>
         <li class="section-link"><a href="#section3">ABOUT</a></li>
         <li><a href="{% url 'login-page' %}"><button>Login</button></a></li>
         <li><a href="{% url 'sign-up' %}"><button>Sign Up</button></a></li>
-    </nav>
-
+   </nav>
+    
     <section id="section1">
         <div class="content1">
             <h1>MONEY PILOT</h1>
-            <h2>"Spend wise, Save smart, Suceed"</h2>
-            <img src="../Assets/pig-removebg-preview.png" alt="Piggy Bank" class="image1">
+            <h2>"Spend wise, Save smart, Succeed"</h2>
+            <img src="{% static 'Assets/pig-removebg-preview.png' %}" alt="Piggy Bank" class="image1">
         </div>
         <div class="wrapper">
             <div class="circle1"></div>
             <div class="circle2"></div>
         </div>
-
     </section>
 
     <!-- Section 2 -->
     <section id="section2">
         <div class="section-content">
             <div class="cont2">
-                <img src="../Assets/1000_F_513083634_vdXBD62NCn8Sbxb3TH0P7MHZm4m223pF1-removebg-preview.png"
-                    alt="Wallet with Money" class="image2">
+                <img src="{% static 'Assets/1000_F_513083634_vdXBD62NCn8Sbxb3TH0P7MHZm4m223pF1-removebg-preview.png' %}" alt="Wallet with Money" class="image2">
                 <div class="subcon1">
-                    <p>Keep track of your daily expenses and plan ahead</p>
+                <p class="aboutus">ABOUT US</p>
+                <p>Welcome to MONEYPILOT<br>
+                    <small ><i style="color: antiquewhite;">Know your money, Grow your money </i>At MoneyPilot, we believe that managing your money should be simple, intuitive, and empowering. Whether you're saving for a big purchase, planning for the future, or just want to make sure your spending aligns with your goals, we’re here to help you every step of the way.</p></small>
                 </div>
             </div>
-            <div class=""></div>
-            <div class="">
-                <div class=""></div>
-                <p></p>
+        </div>
+    </section>
 
-                <!-- Section 4 -->
-                <section id="section4">
-                    <div class="circle1"></div>
-                    <p>Other text explaining website</p>
-                </section>
-                <section id="section3">
-                    <h2>Our Team</h2>
-                    <div class="team">
-                        <div class="team-pair">
-                            <div class="team-member">Title<br>Description</div>
-                            <div class="team-member">Title<br>Description</div>
-                            <div class="team-member">Title<br>Description</div>
-                        </div>
-                        <div class="team-pair">
-                            <div class="team-member">Title<br>Description</div>
-                            <div class="team-member">Title<br>Description</div>
-                            <div class="team-member">Title<br>Description</div>
-                        </div>
+    <!-- Section 4 -->
+    <section id="section4">
+        <div class="circle1">
+            <h1 id="offer" style="text-align: center;">WHAT WE OFFER</h1>
+            <small>
+                <p> MoneyPilot is more than just a finance tracking app.<br> 
+                    We provide<br>
+                    <em>Real-Time Expense Tracking<em>: Monitor your spending in real time with automatic categorization and clear visual summaries.<br>
+                    <em>Custom Budgeting Tools</em>: With your personalized budgets, we help you stay on track and reach your goals faster.<br>
+                    <em>Progress Tracking</em>: Whether it’s a vacation, a new car, or just building an emergency fund, we help you track your expenses and achieve your financial dreams.<br>
+                </p>
+            </small>
+        </div>
+    
+              
+    </section>
+
+    <!-- Section 3 -->
+    <section id="section3">
+        <div class="hole_grp">
+            <h2>"Meet The Minds Behind Our Vision"</h2>
+            <img src="{% static "Assets/Sasha.jpg" %}" alt="">
+        </div>
+
+
+        <div class="team">
+            <div class="team-pair">
+                <div class="team-member" data-image="{% static "Assets/Ornelle.jpg" %}">
+                    <img src="{% static "Assets/Ornelle.jpg" %}" alt="">
+                    <div class="">
+                        Penchia Ornelle<br><b>frontend/ backend dev/Database Designer/</b>
                     </div>
-                </section>
-</body>
+                </div>
+                <div class="team-member" data-image="{% static "Assets/Rose.jpg" %}">
+                    <img src="{% static "Assets/Rose.jpg" %}" alt="">
+                    <div class="">
+                        RoseMary Lecha<br><b>frontend/ backend dev</b>
+                    </div>
+                </div>
+                <div class="team-member" data-image="{% static "Assets/Brighton.jpg" %}">
+                    <img src="{% static "Assets/Brighton.jpg" %}" alt="">
+                    <div class="">
+                       Takem Brighton<br><b>frontend/ backend dev</b>
+                    </div>
+                </div>
+                <div class="team-member" data-image="{% static "Assets/Precious.jpg" %}">
+                    <img src="{% static "Assets/Precious.jpg" %}" alt="">
+                    <div class="">
+                        Maloba Precious<br><b>frontend/ backend dev</b>
+                    </div>
+                </div>
+            </div>
+            <div class="team-pair">
+                <div class="team-member" data-image="{% static "Assets/Sasha.jpg" %}">
+                    <img src="{% static "Assets/Sasha.jpg" %}" alt="">
+                    <div class="">
+                        Nkimyan Praises<br><b>frontend/ backend dev</b>
+                    </div>
+                </div>
+                <div class="team-member" data-image="{% static "Assets/Sergine.jpg" %}">
+                    <img src="{% static "Assets/Sergine.jpg" %}" alt="">
+                    <div class="">Kengmogne Sergine<br><b>frontend/ backend dev</b></div>
+                </div>
+                <div class="team-member" data-image="{% static "Assets/Thelma.jpg" %}">
+                    <img src="{% static "Assets/Thelma.jpg" %}" alt="">
+                    <div>Nkouh Thelma<br><b>frontend/ backend dev</b></div>
+                </div>                <div class="team-member" data-image="{% static "Assets/Wendy.jpg" %}">
+                    <img src="{% static "Assets/Wendy.jpg" %}" alt="">
+                    <div class="">
+                       Mbiydzenyuy Wendy<br><b>frontend/ backend dev</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper-image">
+            <div id="team-image" class="team-image">
+                <div class="close-btn-con">
+                    <div class="close-btn">X</div>
+                </div>
+                <img id="image-display" class="image-display" src="" alt="Team Member Image">
+            </div>
+        </div>
+    </section>
+    <!-- Section 5 -->
+    <section id="section5">
+        <div class="section-content">
+           <h4> Our Mission</h4>
+           <p>Our mission is to provide everyone with the tools they need to take control of their financial future and manage their expenses with an App tailored to your unique needs.<br>
+            <h4>Our Story</h4>
+            <p>MoneyPilot was born out of a simple idea: financial management shouldn't feel like a chore. Our founder, Engineer Ornelle, experienced firsthand the challenges of balancing a busy school life with the need to stay on top of personal finances. Frustrated with not knowing how to manage her money, she set out to create a solution that was both powerful and easy to use. From that vision, MoneyPilot was created — a finance tracking app designed with real people in mind.</p>   
+            <h4>Why Choose MoneyPilot?</h4> 
+            <p>We’re different because we put you first. We’ve designed MoneyPilot with a deep understanding of the everyday challenges of managing money. Our app combines the best of technology with a user-centric approach to deliver an experience that is:
+               <b>Simple and Intuitive</b>: Clean, easy-to-navigate interfaces mean you spend less time tracking your money and more time enjoying life.
+               <b>Private</b>: We use privacy measures to keep your data safe and secure.
+               <b>Secure</b>: All user data are password protected
+            </p>
+            <h4> Meet Our Team</h4>
+            <p>Our diverse team of software engineers, and creative thinkers is dedicated to making personal finance simple and stress-free. We are committed to continuously improving our app based on your feedback and needs.
+            <br><b>Join Our Community</b>
+             At TrackWise, we’re more than just an app — we’re a community. Join users who are transforming their financial lives with us every day.<br>Follow us on <a>Github</a> for tips, stories, and updates from people just like you who are taking charge of their finances.   
+            Ready to Take Control of Your Financial Future?
+            Start your journey with MoneyPilot today. Create your account today, and let’s make managing money easier, smarter, and more rewarding. <a href="#section1"><b>JOIN US</b>
+            </p>
 
+        </div>
+    </section>
+
+    <script src="{% static "JS/landingpage.js" %}"></script>
+</body>
 </html>
