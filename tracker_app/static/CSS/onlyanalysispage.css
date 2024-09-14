@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 70vw;
+    height: 90vh;
+    position:absolute;
+    left: 25vw;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+
+}
+
+.container > * {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 15px;
+
+}
+
+.chart{
+    margin-bottom: 20px;
+    -webkit-box-shadow: -6px 10px 5px 0px rgba(0,0,0,0.18);
+    -moz-box-shadow: -6px 10px 5px 0px rgba(0,0,0,0.18);
+    box-shadow: -6px 10px 5px 0px rgba(0,0,0,0.18);
+
+
+}
+
+.pie {
+    grid-area: 1 / 1 / 5 / 5;
+}
+
+.line{
+    grid-area: 1 / 5 / 5 / 9;
+}
+
+.bar {
+    grid-area: 1 / 9 / 5 / 13;
+}
+
+.stacked {
+    grid-area: 5 / 5 /9 / 10;
+ }
+
+
+h4{
+    position: relative;
+    bottom: 10%;
+}
+
+#piechart{
+    position: relative;
+    left: 4%;
+}
+
+#linechart{
+    position: relative;
+    top: 20%;
+}

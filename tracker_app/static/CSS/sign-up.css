@@ -1,0 +1,71 @@
+body {
+  background-color: rgba(0,255,255);
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+.signup-container {
+  display: flex;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #fff;
+  width: 400px;
+  height: 400px;
+  flex-direction: column;
+  box-sizing: content-box;
+  font-size: large
+}
+
+.signup-container h1 {
+  text-align: center;
+  color: black; /* Black text color */
+}
+
+.show-password-container {
+  background-color: #fff;
+  font-size: 13px;
+  margin-left: 47px;
+  align-items: center;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"] {
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 300px;
+  background-color: #fff; /* White background for inputs */
+  color: #000; /* Black text color */
+  box-sizing:border-box;
+}
+
+.signup-container button {
+  background-color: #000;
+  color: #fff;
+  box-sizing: border-box;
+  border: #000;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+  height: 30px;
+}
+
+.signup-container button:hover {
+  background-color: #333; /* Darker black on hover */
+}
+
+.signup-container a {
+  font-size: 13px;
+  color: rgb(48, 112, 232);
+}
+
+
