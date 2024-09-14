@@ -4,7 +4,11 @@ body {
   }
   
   .profile-container {
-    width: 50%;
+    position: absolute;
+    left: 30%;
+    top: 25%;
+    height: 80vh;
+    width: 40%;
     margin: 40px auto;
     background-color: #F7F7F7;
     padding: 20px;
