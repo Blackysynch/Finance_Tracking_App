@@ -32,6 +32,12 @@ nav > li {
     
 }
 
+.home-link {
+    position: absolute;
+    left: 10%;
+}
+
+
 .section-link{
     position: relative;
     right: 32%;
@@ -87,60 +93,180 @@ nav > li {
 .cont2 .subcon1{
     padding: 6.8rem 6.6rem;
     background-color: #00f7ff;
+    width: 50%;
     display: flex;
     text-align: center;
+    flex-direction: column;
     font-size: 2rem;
     border-radius: 50%;
 }
+#section2{
+   padding-top: 12%;
+   height: 100vh;
+}
+
+#section2 > .aboutus{
+    position: absolute;
+    top:10%;
+    left:10%;
+    background-color: red;
+}
+
+
 #section4{
     height: 90vh;
     display: flex;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     margin-right: 6rem;
     margin-left: 6rem;
     Justify-content: space-between;
+    margin-bottom: 15%;
     
 }
 #section4 .circle1{
-    padding: 12rem;
+    padding: 10rem;
     background-color: #00f7ff;
     border-radius: 50%; 
 }
 #section4 p{
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
+
+
 #section3{
-    height: 350px;
-    width: 85%;
+    height: 100%;
+    margin-bottom: 10%;
+    width: 90%;
     margin-left: 4%;
     padding: 10px 30px;
     display: flex;
+    align-items: center; 
     background-color: #00f7ff;
     justify-content: space-between;
+    position: relative;
+    box-shadow: #03878b;
 }
+
 #section3 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700; 
+    position: relative;
+    left: 10%;
+    
 }
+
 #section3 .team{
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 550px;
     width: 350px;
     gap: 3rem;
     justify-content: center;
     align-items: center;
 }
+
+#group-img{
+    position: relative;
+    left: 10%;
+    width: 60%;
+    height: 70%;
+    border-radius: 20%;
+}
 .team-pair{
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
+    margin-right: 50px;
+    position: relative;
+    right: 20%;
+    top: 10%;
+}
+.team-pair img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 .team-member{
     display: flex;
     flex-direction: column;
     justify-items: center;
+}
+/* Add this CSS to your existing stylesheet */
+
+.team-image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    height: 50%;
+    width: 400px;
+    height: 400px;
+    background-color: #f0f0f0;
+    box-shadow:  gray;
+    z-index: 10;
+    
+}
+
+.wrapper-image{
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 90%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+.close-btn{
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #00f7ff;
+}
+.close-btn-con{
+    width: 100%;
+    display: flex;
+    justify-content:right;
+    padding-right: 3px;
+}
+#team-image img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+.hole_grp{
+    display: flex;
+    flex-direction: column;
+   
+}
+.hole_grp img {
+    position: relative;
+    width: 550px;
+    height: 295px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+#section5 {
+    font-size: 1.5rem;
+    width: 80vw;
+    margin: 20% auto;
+}
+
+#section5, h4 {
+    text-align: center;
 }
