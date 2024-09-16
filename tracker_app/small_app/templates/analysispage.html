@@ -35,28 +35,42 @@
                 </canvas>
             </div>
             <div class="chart bar">
-                <h4 class="titles">bar chart</h4>
                 <canvas id="barchart">
 
                 </canvas>
             </div>
+            
+            <!--
+            not implemented
+            -->
+            <!--
+            <div class="slider-container">
+                <input type="range" id="slider" min="{{min_year }}" max="{{ max_year }}" value="{{ max_year }}">
+                <span id="selected-year">{{ max_year }}</span>
+            </div>
+            
+            -->
+            
             <div class="stacked-chart stacked">
-                <h4 class="titles">stacked bar chart of expenses over time</h4>
                 <canvas id="stackedchart">
-
+                    <!--slider for chart-->
+                    
                 </canvas>
             </div>
-        </div>
 
+            <!--
+            not implemented
+            -->
+        </div>
+        <!--accessigg data by year-->
+        <input type="hidden" id="expenses_by_year_and_month" value='{{ expenses_by_year_and_month}}'>
     </main>
+    -->
     {% include 'nav.html' %}
-    <p>cat {{categories}}</p>
-    <p>ext{{total_expenses}}</p>
-    <p> amt{{amounts}}</p>
-    <p> date {{dates}}</p>
     <script src="https://kit.fontawesome.com/ee9f777706.js" crossorigin="anonymous"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
+                
                 /*pie chart*/
                 const pieCtx = document.getElementById('piechart').getContext('2d');
                 const pieChart = new Chart(pieCtx, {
@@ -134,7 +148,7 @@
                     data: {
                         labels: {{ categories | SafeArray }} ,
                         datasets: [{
-                            label: 'Expenses with time',
+                            label: 'Expenses per category',
                             data: {{ total_expenses | SafeArray}},
                             backgroundColor: ['red', 'blue', 'green', 'purple', 'orange', 'brown'],
                             borderColor: 'rgba(86, 0, 255, 0.5)',
@@ -163,6 +177,127 @@
                         }
                     }
                 });
+
+
+                /*resume bar chart*/
+                /*
+                const stackedCtx = document.getElementById('stackedchart').getContext('2d');
+                const stackedChart = new Chart(stackedCtx, {
+                    type: "bar",
+                    data: {
+                        labels: {{ categories | SafeArray }} ,
+                        datasets: [{
+                            label: 'Expenses per category',
+                            data: {{ total_expenses | SafeArray}},
+                            backgroundColor: 'rgba(86, 0, 255, 0.5)',
+                            borderColor: 'rgba(86, 0, 255, 0.5)',
+                            borderWidth: 1
+                        }],
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Total Expenses per Category'
+                            },
+                            legend: {
+                                position: 'right',
+                                align: 'top',
+                                labels: {
+                                    boxWidth: 10,
+                                    fontSize: 12,
+                                    fontColor: '#666'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    stepSize: 10000
+                                }
+                            }
+                        }
+                    }
+                });
+                */
+
+
+                /*not working*/
+                console.log(expenses_by_year_and_month)
+
+
+                
+
+
+                const resumeCtx = document.getElementById('stackedchart').getContext('2d');
+                const resumeChart = new Chart(resumeCtx, {
+                    type: "bar",
+                    data: {
+                        labels: [
+                            {% for year, year_expenses in expenses_by_year.items %}
+                                {% for month in year_expenses.keys %}
+                                "{{ month}}",
+                                {% endfor %}
+                            {% endfor %}
+                        ],
+                        datasets: [
+                        {% for year, year_expenses in expenses_by_year.items %}
+                            {
+                                label: "{{ year }}",
+                                data: [
+                                    {% for month, total_exp in year_expenses.items %}
+                                        {{ total_exp }},
+                                {% endfor %}
+                            ],
+                            backgroundColor: 'rgba(86, 0, 255, 0.5)',
+                            borderColor: 'rgba(86, 0, 255, 0.5)',
+                            borderWidth: 1
+                        },
+                        {% endfor %}
+                        ],
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Expenses by month'
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    stepSize: 10000
+                                }
+                            },
+                            grouped: true
+
+                        }
+                    }
+                });
+
+                const Slider = document.getElementById('slider');
+                function updateChartData(year){
+                    const expensesByYear = JSON.parse(document.getElementById('expenses_by_year_and_month').value);
+                    const yearExpenses = expensesByYear[year];
+                    const labels = [];
+                    const datasets = [];
+                    
+                    // Loop through the months and expenses for the selected year
+                    for (const month in yearExpenses) {
+                        labels.push(month);
+                        datasets.push(yearExpenses[month]);
+                    }
+
+                    // Update the chart data
+                    resumeChart.data.labels = labels;
+                    resumeChart.data.datasets = [{
+                        label: year,
+                        data: datasets,
+                        backgroundColor: 'rgba(86, 0, 255, 0.5)',
+                        borderColor: 'rgba(86, 0, 255, 0.5)',
+                        borderWidth: 1
+                    }];
+
+                    resumeChart.update();
+                    
+
+                }
+
+                /*not working*/
 
         });
 

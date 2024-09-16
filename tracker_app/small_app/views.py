@@ -8,7 +8,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required 
 from django.db.models import Sum, FloatField
-from django.db.models.functions import Cast
+from django.db.models.functions import Cast, TruncMonth, TruncYear, ExtractMonth, ExtractYear
+import json
 
 # Create your views here.
 
@@ -26,7 +27,7 @@ def loginPage(request):
         password = request.POST.get('password')
 
 
-        print(f" {username}, {password}")
+        #print(f" {username}, {password}")
 
         if not username or not password:
             messages.error(request, 'username and password are required')
@@ -80,7 +81,11 @@ def signUpPage(request):
         new_user = User(username=username, email=email, password=hashed_password)  
         new_user.save()
         
-        print(f"account details are {username} {email} {password}, {hashed_password}")
+        #new user detail
+        user_detail = UserDetail(user=new_user)
+        user_detail.save()
+        
+        #print(f"account details are {username} {email} {password}, {hashed_password}")
         return JsonResponse({'message': 'User created successfully'}) 
     # Render the signup page if not a POST request 
     return render(request, 'sign-up.html')
@@ -208,8 +213,8 @@ def expenseHistory(request):
     user_expenses = Expense.objects.filter(user=request.user)
 
     # Print expense details
-    for expense in user_expenses:
-        print(f"Date: {expense.date}, Category: {expense.category}, Amount: {expense.amount}, Description: {expense.description}")
+    #for expense in user_expenses:
+        #print(f"Date: {expense.date}, Category: {expense.category}, Amount: {expense.amount}, Description: {expense.description}")
 
     return render(request, 'expensetable.html', {'expenses': user_expenses})
 
@@ -223,38 +228,71 @@ def analysisPage(request):
     user = request.user.id
     
 
-    #for 1st pie chart
+    #for 1st pie chart and bar chart
     user_expenses = Expense.objects.filter(user=user).order_by('date')
     user_expenses_per_category = Expense.objects.filter(user=user).values('category').annotate(total_exp=Sum('amount'))
 
     total_expenses = [float(expense['total_exp'])  for expense in user_expenses_per_category]
-    #dates = [expense.date  for expense in user_expenses]
     categories = [expense['category'] for expense in user_expenses_per_category]
 
-    print (f"{total_expenses} \n'{'dates'}' \n{categories}")
+    #print (f"{total_expenses} \n'{'dates'}' \n{categories}")
     
 
-    """
-    for expense in user_expenses_per_category:
-        print(f" {categories} : {total_expenses}")
-    
-    for expense in user_expenses:
-        print(f" {expense.date} {expense.amount} {expense.category}")
-    """
-    
+
     #for the line chart
     # getdates and amounts from expenses
     dates = [str(expense.date) for expense in user_expenses]
     amounts = [float(expense.amount) for expense in user_expenses]
-    for date in dates:
-        print(date , type(dates))
-        print(amounts, type(amounts[0]))
+    
+
+    # for resume chart
+    #months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    expenses_by_year_and_month = list(Expense.objects.annotate(
+        month=ExtractMonth(TruncMonth('date')),
+        expense_year=ExtractYear(TruncYear('date'))
+    ).values('month', 'expense_year').annotate(total_exp=Sum('amount')).order_by('expense_year', 'month'))
+
+    min_year = min(expense['expense_year'] for expense in expenses_by_year_and_month)
+    max_year = max(expense['expense_year'] for expense in expenses_by_year_and_month)
 
 
-    #for bar chart
+    years = list(range(min_year, max_year + 1))
+    #trial
+    expenses_by_y_m = list(Expense.objects.annotate(
+        month=ExtractMonth(TruncMonth('date')),
+        expense_year=ExtractYear(TruncYear('date'))
+    ).values('month', 'expense_year').annotate(total_exp=Sum('amount')).order_by('expense_year', 'month'))
 
 
-    return render(request, 'analysispage.html', { 'total_expenses': total_expenses,'categories': categories,  'dates': dates, 'amounts': amounts })
+
+    # Convert the total_exp to float
+    for expense in expenses_by_year_and_month:
+        expense['total_exp'] = float(expense['total_exp'])
+
+    for expense in expenses_by_year_and_month:
+        print(expense)
+
+    #print(f" max: {max_year} min: {min_year} \n expyearmonth: {expenses_by_year_and_month}")
+    #create 
+
+    expenses_by_year = {}
+
+    # iterate over the expenses
+    for expense in expenses_by_year_and_month:
+        year = expense['expense_year']
+        month = expense['month']
+        total_exp = expense['total_exp']
+
+    # if the year is not already in the dictionary, add it
+    if year not in expenses_by_year:
+        expenses_by_year[year] = {}
+
+    # add the month and total expense to the year's dictionary
+    expenses_by_year[year][month] = total_exp
+
+
+    return render(request, 'analysispage.html', { 'total_expenses': total_expenses,'categories': categories,  'dates': dates, 'amounts': amounts, 'max_year': max_year, 'min_year': min_year, 'expenses_by_year_and_month': json.dumps(expenses_by_year_and_month), 'years': years})
 
 
 def logOut(request):

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'small_app',
     'static',
+    'django_jinja',
 ]
 
 MIDDLEWARE = [
